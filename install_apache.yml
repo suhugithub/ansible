@@ -1,0 +1,21 @@
+---
+
+
+- name: playbook to install apache
+  hosts: webserver
+
+  tasks:
+    - name: install apache
+      yum:
+        name: httpd
+        state: installed
+    - name: start apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+    - name: copy index file
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+...

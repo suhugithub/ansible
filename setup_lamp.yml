@@ -1,0 +1,11 @@
+---
+
+- name: playbook to install Lamp Stack
+  hosts: webserver
+ 
+  roles:
+    - php
+    - db
+    - httpd
+
+...

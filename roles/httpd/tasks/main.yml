@@ -1,0 +1,29 @@
+---
+# tasks file for httpd
+
+- name: install httpd
+  yum: 
+    name: httpd
+    state: installed
+
+- name: start httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: copy httpd
+  copy: 
+    src: index.html
+    dest: /var/www/html/index.html
+
+- name: reconfigure httpd port
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  
+  notify:
+    - restart httpd
+...
+
+ 

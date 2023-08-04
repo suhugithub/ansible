@@ -1,0 +1,9 @@
+---
+
+- name: playbook to install Lamp Stack
+  hosts: webserver
+ 
+  roles:
+    - lamp
+
+...
